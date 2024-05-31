@@ -218,10 +218,10 @@ print("Total weight of MST:", mst_weight)
 ```
 # Problem 3: Maximum Number of Edges in a Simple Bipartite Graph
 
-**I am stuck...**
+**I am stuck**
 understanding the proof of Theorem 11.6, which states that a simple bipartite graph on \( n \) vertices has at most \( \frac{n^2}{4} \) edges if \( n \) is even, and at most \( \frac{n^2 - 1}{4} \) edges if \( n \) is odd. I am having difficulty comprehending why this is the maximum number of edges and how the proof effectively demonstrates this.
 
-**I would be unstuck if I could...**
+**I would be unstuck if I could**
 find a detailed, step-by-step explanation of the proof of Theorem 11.6. Specifically, I need to understand the reasoning behind the calculations and how the assumption about the sizes of the two color classes leads to the maximum number of edges.
 
 ## Potential Directions to Explore
