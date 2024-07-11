@@ -224,7 +224,7 @@ We explored whether the mathematical insights from the Eight Queens Problem coul
 
 #### Write-up Summary
 
-1. **Collaboration Partner:** Worked with [Partner's Name], who is working on the Eight Queens Problem.
+1. **Collaboration Partner:** Worked with [Jialu Song], who is working on the Eight Queens Problem.
 2. **Learnings:** Gained insights into the combinatorial nature and challenges of the Eight Queens Problem. Understood the application of backtracking and pruning techniques in combinatorial searches.
 3. **Teachings:** Explained the Jellybean Sequences problem, including the power of 2 condition and enumeration methods. Discussed how similar backtracking techniques could be applied to find valid jellybean sequences.
 4. **Common Question and Progress:** Explored the feasibility of deriving a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k)). Discussed the implementation of computational methods to validate sequences and placements.
