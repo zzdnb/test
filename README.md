@@ -1,339 +1,370 @@
-
-## Conjecture 1 
-
-For any array of 
-![equation](https://latex.codecogs.com/png.latex?n) 
-elements, where 
-![equation](https://latex.codecogs.com/png.latex?n) 
-is a positive integer, the Merge Sort algorithm always requires at most 
-![equation](https://latex.codecogs.com/png.latex?n%20%5Clog%20n) 
-comparisons in the worst-case scenario to sort the array.
-
-### Background and Motivation
-
-This conjecture is inspired by the fundamental properties of the Merge Sort algorithm and its divide-and-conquer strategy. Merge Sort is known for its efficiency in comparison-based sorting and guarantees a consistent time complexity of 
-![equation](https://latex.codecogs.com/png.latex?O%28n%20%5Clog%20n%29). 
-By focusing on the number of comparisons made during the sorting process, this conjecture aims to establish a clear upper bound on the algorithm's performance, which is critical for understanding its efficiency in practical applications.
-
-### Conjecture Statement
-
-Let 
-![equation](https://latex.codecogs.com/png.latex?A) 
-be an array of 
-![equation](https://latex.codecogs.com/png.latex?n) 
-elements. Then, the Merge Sort algorithm requires at most 
-![equation](https://latex.codecogs.com/png.latex?n%20%5Clog%20n) 
-comparisons to sort the array in the worst-case scenario.
-
-### Proof
-
-#### Step-by-Step Proof
-
-1. **Setup and Notation**:
-    - Merge Sort works by recursively dividing the array into two halves until each subarray contains a single element.
-    - The depth of this recursion can be visualized as a binary tree, where each level represents a division of the array into smaller parts.
-
-2. **Number of Comparisons at Each Level**:
-    - At each level of the tree, elements are compared and merged to form a sorted array.
-    - For each pair of subarrays, the number of comparisons required to merge them is proportional to the total number of elements in those subarrays.
-
-3. **Total Comparisons**:
-    - Since there are 
-    ![equation](https://latex.codecogs.com/png.latex?%5Clog%20n) 
-    levels in the binary tree and each level involves 
-    ![equation](https://latex.codecogs.com/png.latex?n) 
-    comparisons, the total number of comparisons in the worst-case scenario is:
-
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20%5Clog%20n)
-
-4. **Worst-Case Scenario**:
-    - In the worst-case scenario, each element must be compared multiple times during the merging process, leading to a consistent 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Clog%20n) 
-    complexity.
-
-    Therefore, Merge Sort requires at most 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Clog%20n) 
-    comparisons in the worst-case.
-
-### Extensions and Implications
-
-- **Higher Dimensions**: The conjecture can be extended to higher-dimensional data sorting problems. In higher dimensions, the merging process involves additional comparisons and could provide insights into how sorting algorithms scale with data complexity.
-
-- **Different Data Structures**: Applying the conjecture to different data structures, such as linked lists or trees, can reveal how the underlying structure affects the number of comparisons. For example, sorting linked lists using Merge Sort can provide a linear comparison complexity relative to the number of elements.
-
-### Suggestions for Counterexamples
-
-- **Non-Uniform Data Distributions**: Test Merge Sort on arrays with non-uniform distributions, such as skewed or clustered data, to see if there are cases where the number of comparisons deviates from the conjectured upper bound.
-
-- **Performance on Edge Cases**: Consider edge cases like arrays with repeated elements or already sorted arrays to verify if the number of comparisons is consistent with the conjectured maximum.
-
-### Advice for Further Research
-
-- **Optimizing Comparisons**: Investigate ways to optimize the number of comparisons in the Merge Sort algorithm. This could include strategies like adaptive sorting where the algorithm adjusts its behavior based on the initial order of elements.
-
-- **Algorithm Variations**: Study variations of Merge Sort, such as in-place Merge Sort or parallel Merge Sort, to understand how changes in the algorithmic structure affect the number of comparisons and overall performance.
-
-- **Real-World Applications**: Analyze the application of Merge Sort in real-world scenarios, such as database management or big data processing, to understand its practical implications and potential for optimization.
-
+### Detailed Report on Jellybean Sequences and Eight Queens Problem
 
 ---
 
+#### Introduction
 
-## Conjecture2
-
-In a two-dimensional plane, for any set of 
-![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n%20%2B%201) 
-points, where 
-![equation](https://latex.codecogs.com/png.latex?n) 
-is a positive integer and each point's coordinates are integers, there exists at least one unit square that contains at least two of these points.
-
-### Background and Motivation
-
-This conjecture is inspired by the Pigeonhole Principle, a fundamental concept in combinatorics which asserts that if you have more items than containers, at least one container must hold more than one item. The conjecture aims to apply this principle in a geometric context, particularly within a grid of unit squares where points are distributed. This exploration seeks to uncover how points inevitably cluster within a limited number of unit squares, leading to significant geometric and combinatorial implications.
-
-### Conjecture Statement
-
-Let 
-![equation](https://latex.codecogs.com/png.latex?S) 
-be a set of 
-![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n%20%2B%201) 
-points in the plane where each point 
-![equation](https://latex.codecogs.com/png.latex?%28x%2C%20y%29) 
-has integer coordinates. Then, there exists at least one unit square in the plane that contains at least two points from 
-![equation](https://latex.codecogs.com/png.latex?S).
-
-### Proof
-
-#### Step-by-Step Proof
-
-1. **Setup and Notation**:
-    - Consider a grid of unit squares in the Cartesian plane.
-    - The grid lines are aligned with the coordinate axes, dividing the plane into squares with side length 1.
-    - Each unit square can be identified by its bottom-left corner at integer coordinates 
-    ![equation](https://latex.codecogs.com/png.latex?%28i%2C%20j%29), 
-    where 
-    ![equation](https://latex.codecogs.com/png.latex?i) 
-    and 
-    ![equation](https://latex.codecogs.com/png.latex?j) 
-    are integers.
-
-2. **Application of the Pigeonhole Principle**:
-    - We have 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n) 
-    unit squares, forming an 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n) 
-    grid.
-    - The total number of squares is 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2).
-
-3. **Placing Points in Squares**:
-    - We place 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n%20%2B%201) 
-    points in this 
-    ![equation](https://latex.codecogs.com/png.latex?n%20%5Ctimes%20n) 
-    grid.
-    - According to the Pigeonhole Principle, since we have 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2%20%2B%201) 
-    points and only 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2) 
-    unit squares, at least one square must contain more than one point.
-
-4. **Formalizing the Argument**:
-    - Let 
-    ![equation](https://latex.codecogs.com/png.latex?m%20%3D%20n%20%5Ctimes%20n) 
-    represent the number of squares.
-    - The points are distributed among these squares.
-    - Since 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2%20%2B%201%20%3E%20n%5E2), 
-    the Pigeonhole Principle ensures that at least one square will contain at least two points.
-
-5. **Contradiction Approach**:
-    - Assume, for contradiction, that no square contains more than one point.
-    - Then each of the 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2) 
-    squares contains at most one point.
-    - This would imply that all 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2%20%2B%201) 
-    points are placed in 
-    ![equation](https://latex.codecogs.com/png.latex?n%5E2) 
-    squares, which is impossible because there are more points than squares.
-
-6. **Conclusion**:
-    - Therefore, the assumption is false, and at least one square must contain at least two points.
-
-### Extensions and Implications
-
-- **Higher Dimensions**: The conjecture can be extended to higher dimensions, where the points are distributed in 
-    ![equation](https://latex.codecogs.com/png.latex?n)-dimensional hypercubes. The general principle remains the same, where the volume of the space and the number of points exceed the capacity of distinct regions, leading to overlap.
-
-- **Different Grid Sizes**: The unit square assumption can be modified to explore how different grid sizes affect the distribution of points. For example, changing the size of the grid to rectangles or other polygons can lead to new insights into the distribution patterns of points.
-
-### Suggestions for Counterexamples
-
-
-- **Alter Grid Structure**: Change the grid to non-uniform sizes or different shapes and observe the distribution of points. For instance, using a triangular grid or an irregular grid might help understand the conditions under which the Pigeonhole Principle still applies.
-
-- **Increase Dimensions**: Experiment with higher dimensions where the distribution might behave differently. Points in three-dimensional or higher-dimensional spaces can provide a richer field for testing and exploring the conjecture.
-
-- **Change Point Distribution**: Consider non-integer or random distributions to see if the principle still holds. This can help in understanding the robustness of the conjecture under different conditions and distributions.
-
-### Advice for Further Research
-
-- **Explore Non-Euclidean Spaces**: Study how the conjecture applies in non-Euclidean geometries, such as spherical or hyperbolic spaces. The curvature of the space can introduce new factors that affect the distribution of points and the application of the Pigeonhole Principle.
-
-- **Computer Simulations**: Use computational tools to simulate and visualize the distribution of points in large-scale grids. This can provide empirical evidence to support or refute the conjecture and help in identifying patterns that are not immediately obvious.
-
-- **Study Related Theorems**: Investigate related theorems in combinatorics and geometry to find deeper connections and implications. For example, exploring the connections between the Pigeonhole Principle and other combinatorial results can provide a broader context for the conjecture.
+In this report, I will detail the discussions and insights gained from a meeting with a fellow student who is working on the Eight Queens Problem, while my project focuses on the Jellybean Sequences problem. The purpose of this meeting was to explore the conjectures, proven results, and challenges each of us faced, and to find common ground where our methods or insights might overlap.
 
 ---
 
+### Part 1: Jellybean Sequences
 
-## Conjecture 3
+#### Problem Statement
 
-Removing a single edge from a connected planar graph decreases the number of faces by one, provided that the edge is part of a cycle.
+The Jellybean Sequences problem begins with an empty jar, and over ![equation](https://latex.codecogs.com/png.latex?n) days, Alice alternates between adding and removing jellybeans. The primary condition is that on the ![equation](https://latex.codecogs.com/png.latex?n)th day, the number of jellybeans in the jar must be a power of 2. For example, the count could be 1, 2, 4, 8, 16, and so on. The goal is to determine valid sequences of operations that satisfy this condition.
 
-### Background and Motivation
+#### Observations and Key Points
 
-This conjecture arises from the fundamental properties of planar graphs and Euler's formula. Euler's formula provides a relationship between the number of vertices, edges, and faces in a planar graph, which is essential for understanding the structural dynamics of these graphs. The motivation is to investigate how removing an edge, especially one that is part of a cycle, impacts the number of faces in the graph. This understanding has broad implications in graph theory and its applications, such as in network design and topology.
+1. **Initial State:** The jar starts empty with zero jellybeans.
+2. **Operations:** Each day, Alice can either add a jellybean or remove one (if there are any in the jar). The number of jellybeans must always be non-negative.
+3. **Power of 2 Condition:** The critical condition is that on specific days, the number of jellybeans must be a power of 2.
 
-### Conjecture Statement
+#### Example Sequences
 
-Let 
-![equation](https://latex.codecogs.com/png.latex?G) 
-be a connected planar graph with 
-![equation](https://latex.codecogs.com/png.latex?V) 
-vertices, 
-![equation](https://latex.codecogs.com/png.latex?E) 
-edges, and 
-![equation](https://latex.codecogs.com/png.latex?F) 
-faces. Removing an edge 
-![equation](https://latex.codecogs.com/png.latex?e) 
-that is part of a cycle in 
-![equation](https://latex.codecogs.com/png.latex?G) 
-decreases the number of faces by one, resulting in a new graph 
-![equation](https://latex.codecogs.com/png.latex?G%27) 
-with 
-![equation](https://latex.codecogs.com/png.latex?E%20-%201) 
-edges and 
-![equation](https://latex.codecogs.com/png.latex?F%20-%201) 
-faces.
+Here are some sequences for an 8-day period that satisfy the given conditions:
 
-### Proof
+- 1, 2, 1, 0, 1, 0, 1, 0
+- 1, 2, 3, 4, 3, 2, 1, 0
+- 1, 2, 1, 2, 1, 2, 1, 0
 
-#### Step-by-Step Proof
+These sequences illustrate the alternation between adding and removing jellybeans while ensuring the count meets the power of 2 condition on the final day.
 
-1. **Setup and Notation**:
-    - Consider a connected planar graph 
-    ![equation](https://latex.codecogs.com/png.latex?G) 
-    with 
-    ![equation](https://latex.codecogs.com/png.latex?V) 
-    vertices, 
-    ![equation](https://latex.codecogs.com/png.latex?E) 
-    edges, and 
-    ![equation](https://latex.codecogs.com/png.latex?F) 
-    faces.
-    - Assume there is an edge 
-    ![equation](https://latex.codecogs.com/png.latex?e) 
-    in 
-    ![equation](https://latex.codecogs.com/png.latex?G) 
-    that is part of a cycle.
+#### Mathematical Insights
 
-    ![Graph G](https://latex.codecogs.com/png.latex?G%28V%2C%20E%2C%20F%29)
+1. **Initial Number:** The first number must be 1 because the jar starts empty, and Alice’s only option is to add one jellybean.
+2. **Alternating Differences:** The difference between two consecutive numbers is either +1 (adding a jellybean) or -1 (removing a jellybean).
+3. **Non-negative Counts:** The number of jellybeans must always be non-negative. Alice cannot remove jellybeans if the jar is already empty.
+4. **Alternating Odd and Even:** The sequences demonstrate an alternating pattern of odd and even numbers.
 
-2. **Using Euler's Formula**:
-    - Euler's formula for a connected planar graph is:
-    ![equation](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+#### Proof for Odd ![equation](https://latex.codecogs.com/png.latex?n)
 
-    ![Euler's Formula](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+If ![equation](https://latex.codecogs.com/png.latex?n) is odd, it is impossible to have a sequence where the jellybean count returns to 0 on the ![equation](https://latex.codecogs.com/png.latex?n)th day. This is because the alternation between adding and removing jellybeans ensures that the count on the final day will be odd if ![equation](https://latex.codecogs.com/png.latex?n) is odd, and zero is even.
 
-3. **Initial State**:
-    - The graph 
-    ![equation](https://latex.codecogs.com/png.latex?G) 
-    initially satisfies Euler's formula:
-    ![equation](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+**Mathematical Formulation**: Let ![equation](https://latex.codecogs.com/png.latex?a_1,%20a_2,%20...,%20a_n) be a sequence of integers such that:
 
-    ![Initial Formula](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+- ![equation](https://latex.codecogs.com/png.latex?n) is an odd positive number.
+- ![equation](https://latex.codecogs.com/png.latex?a_1%20=%201).
+- For each ![equation](https://latex.codecogs.com/png.latex?1%20\leq%20i%20<%20n), ![equation](https://latex.codecogs.com/png.latex?a_i%20-%20a_{i+1}) is either -1 or 1.
+- Each ![equation](https://latex.codecogs.com/png.latex?a_k) is non-negative for all ![equation](https://latex.codecogs.com/png.latex?k) from 1 to ![equation](https://latex.codecogs.com/png.latex?n).
 
-4. **Removing an Edge**:
-    - Remove an edge 
-    ![equation](https://latex.codecogs.com/png.latex?e) 
-    that is part of a cycle in 
-    ![equation](https://latex.codecogs.com/png.latex?G).
-    - The new graph, denoted as 
-    ![equation](https://latex.codecogs.com/png.latex?G%27), 
-    will have 
-    ![equation](https://latex.codecogs.com/png.latex?E%20-%201) 
-    edges.
+Given these conditions, ![equation](https://latex.codecogs.com/png.latex?a_n) must be an odd number, which implies ![equation](https://latex.codecogs.com/png.latex?a_n) can never be 0 if ![equation](https://latex.codecogs.com/png.latex?n) is odd. Thus, there are no valid sequences for odd ![equation](https://latex.codecogs.com/png.latex?n).
 
-    ![Edge Removal](https://latex.codecogs.com/png.latex?G%27%28V%2C%20E%20-%201%2C%20F%20-%201%29)
+#### Enumeration of Sequences
 
-5. **Effect on Faces**:
-    - The edge 
-    ![equation](https://latex.codecogs.com/png.latex?e) 
-    borders two faces in 
-    ![equation](https://latex.codecogs.com/png.latex?G).
-    - Removing 
-    ![equation](https://latex.codecogs.com/png.latex?e) 
-    merges these two faces into a single face, thus reducing the total number of faces by one.
+To find the total number of valid sequences for even ![equation](https://latex.codecogs.com/png.latex?n):
 
-    ![New Faces](https://latex.codecogs.com/png.latex?F%27%20%3D%20F%20-%201)
+- For ![equation](https://latex.codecogs.com/png.latex?n%20=%202), the sequence is: 1, 0. (Only 1 sequence)
+- For ![equation](https://latex.codecogs.com/png.latex?n%20=%204), the sequences are: 1, 0, 1, 0 and 1, 2, 1, 0. (2 sequences)
+- For ![equation](https://latex.codecogs.com/png.latex?n%20=%206), the sequences include: 1, 0, 1, 0, 1, 0; 1, 2, 1, 0, 1, 0; 1, 0, 1, 2, 1, 0; 1, 2, 3, 2, 1, 0; and 1, 2, 1, 2, 1, 0. (5 sequences)
 
-6. **Verification Using Euler's Formula**:
-    - For the new graph 
-    ![equation](https://latex.codecogs.com/png.latex?G%27), 
-    apply Euler's formula:
-    ![equation](https://latex.codecogs.com/png.latex?V%20-%20%28E%20-%201%29%20%2B%20%28F%20-%201%29%20%3D%202)
-    - Simplify the equation:
-    ![Simplification Step 1](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%201%20%2B%20F%20-%201%20%3D%202)
-    ![Simplification Step 2](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+#### Challenges and Unresolved Questions
 
-    ![Final Formula](https://latex.codecogs.com/png.latex?V%20-%20E%20%2B%20F%20%3D%202)
+1. **General Formula:** While some patterns are observed, finding a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k)) (number of valid sequences for even ![equation](https://latex.codecogs.com/png.latex?n)) remains a challenge. It is known that ![equation](https://latex.codecogs.com/png.latex?S(2k)) is strictly increasing and that ![equation](https://latex.codecogs.com/png.latex?S(2k)%20<%20M(2k)), where ![equation](https://latex.codecogs.com/png.latex?M(2k)) is the total number of sequences without the non-negative constraint.
+2. **Computational Approach:** A computational approach can be used to enumerate sequences for larger ![equation](https://latex.codecogs.com/png.latex?n). This involves traversing a binary tree where each left move corresponds to adding a jellybean, and each right move corresponds to removing a jellybean, ensuring non-negative counts throughout.
 
-7. **Conclusion**:
-    - The formula remains consistent, confirming that the relationship between vertices, edges, and faces still holds.
-    - Removing a single edge from a connected planar graph that is part of a cycle decreases the number of faces by one, without disrupting the overall structure of the graph.
+#### Proof by Enumeration and Recursion
 
-    ![Conclusion](https://latex.codecogs.com/png.latex?%5Ctext%7BRemoving%20a%20single%20edge%20from%20a%20connected%20planar%20graph%20that%20is%20part%20of%20a%20cycle%20decreases%20the%20number%20of%20faces%20by%20one.%7D)
+1. **Recursive Definition:** Define ![equation](https://latex.codecogs.com/png.latex?S(n)) as the number of valid sequences of length ![equation](https://latex.codecogs.com/png.latex?n) that end with zero jellybeans. Base cases: ![equation](https://latex.codecogs.com/png.latex?S(2)%20=%201), ![equation](https://latex.codecogs.com/png.latex?S(4)%20=%202), ![equation](https://latex.codecogs.com/png.latex?S(6)%20=%205).
+2. **Recurrence Relation:** To derive ![equation](https://latex.codecogs.com/png.latex?S(2k)), we consider extending the sequences in ![equation](https://latex.codecogs.com/png.latex?S(2(k-1))). Each valid sequence in ![equation](https://latex.codecogs.com/png.latex?S(2(k-1))) can be extended by adding one jellybean followed by removing one jellybean, ensuring non-negative counts.
+3. **General Case:** The general case involves recursively applying the recurrence relation to build larger sequences from smaller ones.
 
-### Extensions and Implications
+#### Computational Implementation
 
-- **Higher Dimensions**: This conjecture can be extended to higher-dimensional analogs where elements like surfaces or volumes play roles similar to edges and faces in planar graphs. In these cases, removing an element could affect the overall structure in ways that are analogous but more complex than in two dimensions.
+To validate the enumeration and find sequences for larger values of ![equation](https://latex.codecogs.com/png.latex?n), we implemented a computational approach using Python.
 
-    ![Higher Dimensions](https://latex.codecogs.com/png.latex?%5Ctext%7BThis%20principle%20extends%20to%20higher%20dimensions%2C%20affecting%20volumes%20and%20other%20complex%20structures.%7D)
+```python
+def is_valid_sequence(seq):
+    count = 0
+    for num in seq:
+        if num == 1:
+            count += 1
+        else:
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
 
-- **Different Graph Types**: Applying the conjecture to graphs embedded on different surfaces, such as spheres or toruses, can reveal how the topology of the surface influences the face structure and connectivity. This could provide insights into more general topological properties of graphs.
+def generate_sequences(n):
+    if n % 2 != 0:
+        return []
+    sequences = []
+    def backtrack(seq, count):
+        if len(seq) == n:
+            if is_valid_sequence(seq):
+                sequences.append(seq[:])
+            return
+        if count > 0:
+            seq.append(0)
+            backtrack(seq, count - 1)
+            seq.pop()
+        seq.append(1)
+        backtrack(seq, count + 1)
+        seq.pop()
+    
+    backtrack([], 0)
+    return sequences
 
-    ![Different Graph Types](https://latex.codecogs.com/png.latex?%5Ctext%7BStudying%20graphs%20on%20different%20topologies%20can%20offer%20further%20insights.%7D)
+# Example usage: find sequences for 8 steps
+sequences = generate_sequences(8)
+for seq in sequences:
+    print(seq)
+```
 
-### Suggestions for Finding Counterexamples
+This algorithm uses backtracking to explore all possible sequences and validates each sequence to ensure it meets the required conditions.
 
-- **Special Graph Structures**: Explore graphs with unique configurations, such as those containing multiple connected components or with specific types of symmetries, where the expected change in the number of faces might not follow the usual pattern.
+---
 
-    ![Special Structures](https://latex.codecogs.com/png.latex?%5Ctext%7BLook%20for%20special%20structures%20or%20configurations%20that%20defy%20the%20usual%20rules.%7D)
+### Part 2: Eight Queens Problem
 
-- **Disconnected Components**: Examine scenarios where removing an edge results in disconnected components. These cases can alter the typical changes in face count and provide examples that test the boundaries of the conjecture.
+#### Problem Statement
 
-    ![Disconnected Components](https://latex.codecogs.com/png.latex?%5Ctext%7BInvestigate%20the%20effect%20of%20disconnections%20on%20face%20counts.%7D)
+The Eight Queens Problem is a classic puzzle where the goal is to
 
-### Advice for Further Research
+place 8 queens on an ![equation](https://latex.codecogs.com/png.latex?8%20\times%208) chessboard such that no two queens can attack each other. This means no two queens can be in the same row, column, or diagonal.
 
-- **Explore Non-Euclidean Spaces**: Study how this conjecture applies to graphs embedded in non-Euclidean geometries, such as hyperbolic or spherical surfaces. The curvature and topology of these spaces introduce new factors that can significantly impact the properties of the graph.
+#### Observations and Key Points
 
-    ![Non-Euclidean Spaces](https://latex.codecogs.com/png.latex?%5Ctext%7BNon-Euclidean%20geometries%20provide%20new%20contexts%20for%20testing%20the%20conjecture.%7D)
+1. **Non-attacking Conditions:** Each queen must be placed such that it does not share the same row, column, or diagonal with any other queen.
+2. **Backtracking Algorithm:** A common approach to solving this problem is using backtracking, which explores possible queen placements row by row and prunes branches where a conflict arises.
 
-- **Investigate Graph Modifications**: Analyze how different types of modifications, such as edge contractions, vertex deletions, or adding edges, affect the overall structure and properties of planar graphs. This can provide a comprehensive understanding of graph dynamics.
+#### Example Solution
 
-    ![Graph Modifications](https://latex.codecogs.com/png.latex?%5Ctext%7BStudy%20the%20effects%20of%20various%20modifications%20on%20graph%20structure%20and%20face%20count.%7D)
+One valid arrangement for the queens is:
 
-- **Applications in Real-World Scenarios**: Examine practical applications, such as in network design, cartography, and data visualization, to understand how the principles of planar graph theory can be applied to solve complex real-world problems.
+- [1, 5, 8, 6, 3, 7, 2, 4]
+- This means placing queens at positions (1,1), (2,5), (3,8), (4,6), (5,3), (6,7), (7,2), and (8,4).
 
-    ![Real-World Applications](https://latex.codecogs.com/png.latex?%5Ctext%7BExplore%20real-world%20applications%20where%20planar%20graph%20theory%20is%20useful.%7D)
+#### Algorithm Implementation
 
+The backtracking algorithm involves:
 
+1. **Recursive Function:** Place queens one row at a time. Check for conflicts in columns and diagonals before placing a queen.
+2. **Conflict Check:** Ensure no two queens are in the same column or diagonal.
 
+#### Mathematical Proof
 
+To prove that a given arrangement is valid, we ensure that no two queens attack each other. This involves checking the following conditions for each pair of queens:
 
+- They do not share the same row.
+- They do not share the same column.
+- They do not share the same diagonal.
 
+**Mathematical Formulation**: Let ![equation](https://latex.codecogs.com/png.latex?q_i) represent the column position of the queen in the ![equation](https://latex.codecogs.com/png.latex?i)th row. For a valid configuration:
 
+- ![equation](https://latex.codecogs.com/png.latex?q_i%20\neq%20q_j) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j) (no two queens share the same column).
+- ![equation](https://latex.codecogs.com/png.latex?|q_i%20-%20q_j|%20\neq%20|i%20-%20j|) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j) (no two queens share the same diagonal).
 
+By ensuring these conditions are met, we can validate the arrangement as a solution to the Eight Queens Problem.
 
+#### Backtracking Algorithm
+
+The following Python code demonstrates the backtracking approach to solve the Eight Queens Problem:
+
+```python
+def is_safe(board, row, col):
+    for i in range(row):
+        if board[i] == col or \
+           board[i] - i == col - row or \
+           board[i] + i == col + row:
+            return False
+    return True
+
+def solve_n_queens(n):
+    def backtrack(board, row):
+        if row == n:
+            result.append(board[:])
+            return
+        for col in range(n):
+            if is_safe(board, row, col):
+                board[row] = col
+                backtrack(board, row + 1)
+                board[row] = -1
+    
+    result = []
+    board = [-1] * n
+    backtrack(board, 0)
+    return result
+
+# Example usage: find solutions for 8 queens
+solutions = solve_n_queens(8)
+for solution in solutions:
+    print(solution)
+```
+
+This algorithm uses recursion to place queens row by row, checking for conflicts before placing each queen. It backtracks when a conflict is detected, ensuring all possible valid configurations are explored.
+
+#### Extensions and Generalizations
+
+1. **![equation](https://latex.codecogs.com/png.latex?n)-Queens Problem:** The Eight Queens Problem can be generalized to the ![equation](https://latex.codecogs.com/png.latex?n)-Queens Problem, where the goal is to place ![equation](https://latex.codecogs.com/png.latex?n) queens on an ![equation](https://latex.codecogs.com/png.latex?n%20\times%20n) chessboard such that no two queens attack each other.
+2. **Higher Dimensions:** The problem can also be extended to higher dimensions, where queens are placed on a ![equation](https://latex.codecogs.com/png.latex?k)-dimensional chessboard.
+3. **Optimizations:** Various optimizations can be applied to improve the efficiency of the backtracking algorithm, such as heuristic-based pruning and symmetry breaking.
+
+---
+
+### Discussion and Collaboration
+
+#### Common Ground
+
+Both problems involve combinatorial search and validation techniques. The strategies used in one problem can often inspire approaches in the other.
+
+#### Insights Exchange
+
+- **Backtracking Techniques:** Both problems benefit from backtracking to explore valid configurations. Pruning invalid branches early improves efficiency.
+- **Mathematical Proofs:** Proving the validity of solutions in the Eight Queens Problem can provide insights into validating sequences in the Jellybean problem.
+
+#### Collaborative Question
+
+We explored whether the mathematical insights from the Eight Queens Problem could help in formulating a general solution for the Jellybean Sequences problem. Specifically, we discussed how the constraint validation in the Queens Problem might inform a similar validation process for ensuring the jellybean count conditions are met.
+
+#### Progress Made
+
+1. **Algorithm Enhancements:** Consideration of optimizations in the backtracking approach. Exploring computational methods for larger instances of both problems.
+2. **Conceptual Understanding:** Deepened understanding of combinatorial search problems. Shared techniques for efficient search and validation.
+
+#### Write-up Summary
+
+1. **Collaboration Partner:** Worked with [Partner's Name], who is working on the Eight Queens Problem.
+2. **Learnings:** Gained insights into the combinatorial nature and challenges of the Eight Queens Problem. Understood the application of backtracking and pruning techniques in combinatorial searches.
+3. **Teachings:** Explained the Jellybean Sequences problem, including the power of 2 condition and enumeration methods. Discussed how similar backtracking techniques could be applied to find valid jellybean sequences.
+4. **Common Question and Progress:** Explored the feasibility of deriving a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k)). Discussed the implementation of computational methods to validate sequences and placements.
+5. **Reflection:** The collaboration was highly beneficial, providing new perspectives and enhancing problem-solving approaches. Future collaboration is planned to further explore computational methods and potential formula derivations.
+
+---
+
+### Expanded Discussion and Mathematical Proofs
+
+#### Common Ground
+
+Both the Jellybean Sequences and the Eight Queens Problem require solving complex combinatorial puzzles through exhaustive search and validation. The backtracking technique is pivotal in both cases, allowing us to explore potential solutions while pruning paths that violate the given constraints. This common ground underscores the versatility of backtracking in tackling various combinatorial challenges.
+
+#### Insights Exchange
+
+1. **Backtracking Techniques:**
+   
+   - **Jellybean Sequences:** By using backtracking, we generate all possible sequences of adding and removing jellybeans. At each step, we check if the sequence remains valid (i.e., the number of jellybeans is non-negative). This method efficiently narrows down the potential sequences to those that meet the power of 2 condition.
+   - **Eight Queens Problem:** In the Eight Queens Problem, backtracking is used to place each queen on the board one row at a time. If placing a queen results in a conflict (same row, column, or diagonal as another queen), the algorithm backtracks and tries a different position. This systematic approach ensures that only valid placements are explored.
+2. **Mathematical Proofs:**
+   
+   - **Eight Queens Problem:** To prove a solution's validity, we ensure no two queens share the same row, column, or diagonal. Let ![equation](https://latex.codecogs.com/png.latex?q_i) represent the column position of the queen in the ![equation](https://latex.codecogs.com/png.latex?i)th row. For a valid configuration:
+     - ![equation](https://latex.codecogs.com/png.latex?q_i%20\neq%20q_j) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j) (no two queens share the same column).
+     - ![equation](https://latex.codecogs.com/png.latex?|q_i%20-%20q_j|%20\neq%20|i%20-%20j|) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j) (no two queens share the same diagonal).
+   - **Jellybean Sequences:** The validation process in the Eight Queens Problem inspired a similar approach for the Jellybean Sequences. Ensuring that the sequence of jellybeans remains non-negative and meets the power of 2 condition can be validated systematically at each step, similar to how queen placements are validated.
+
+#### Collaborative Question
+
+The core question we explored was how the mathematical validation techniques used in the Eight Queens Problem could be adapted to the Jellybean Sequences problem. Specifically, we discussed:
+
+- **Constraint Validation:** Just as queens must not attack each other, the sequence of jellybean counts must always be non-negative and meet the power of 2 condition on specified days. We considered how to systematically validate these constraints using a similar backtracking approach.
+- **Optimization Techniques:** We examined how the pruning strategies in the Queens Problem could help in efficiently discarding invalid jellybean sequences early in the search process.
+
+#### Progress Made
+
+1. **Algorithm Enhancements:**
+   - **
+
+Backtracking Optimization:** We considered several enhancements to the backtracking approach, such as using heuristic-based pruning to prioritize more promising branches, reducing the overall computational effort.
+
+- **Computational Methods:** We explored the use of dynamic programming and memoization to store and reuse previously computed results, thus avoiding redundant calculations and improving efficiency in both problems.
+
+2. **Conceptual Understanding:**
+   
+   - **Combinatorial Search:** The discussions deepened our understanding of combinatorial search problems. We shared techniques for efficiently navigating large search spaces and ensuring that only valid configurations are considered.
+   - **Efficient Validation:** Emphasized the importance of efficient validation methods to quickly discard invalid configurations, thus saving computational resources.
+3. **Mathematical Proofs:**
+   
+   - **Eight Queens Problem:** The mathematical proof involves checking that no two queens attack each other. Let ![equation](https://latex.codecogs.com/png.latex?q_i) be the column of the queen in the ![equation](https://latex.codecogs.com/png.latex?i)th row. The conditions are:
+     - ![equation](https://latex.codecogs.com/png.latex?q_i%20\neq%20q_j) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j).
+     - ![equation](https://latex.codecogs.com/png.latex?|q_i%20-%20q_j|%20\neq%20|i%20-%20j|) for ![equation](https://latex.codecogs.com/png.latex?i%20\neq%20j).
+   - **Jellybean Sequences:** The sequences are validated by ensuring non-negative counts and meeting the power of 2 condition at specific steps. This can be systematically checked at each step in the sequence, similar to the placement of queens.
+
+#### Write-up Summary
+
+1. **Collaboration Partner:** Worked with [Jialu Song], who is working on the Eight Queens Problem.
+2. **Learnings:** Gained insights into the combinatorial nature and challenges of the Eight Queens Problem. Understood the application of backtracking and pruning techniques in combinatorial searches.
+3. **Teachings:** Explained the Jellybean Sequences problem, including the power of 2 condition and enumeration methods. Discussed how similar backtracking techniques could be applied to find valid jellybean sequences.
+4. **Common Question and Progress:** Explored the feasibility of deriving a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k)). Discussed the implementation of computational methods to validate sequences and placements.
+5. **Reflection:** The collaboration was highly beneficial, providing new perspectives and enhancing problem-solving approaches. Future collaboration is planned to further explore computational methods and potential formula derivations.
+
+### Questions and Discussions
+
+#### Jellybean Sequences Questions:
+
+1. **How can we derive a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k))?**
+   
+   - **Answer:** Deriving a general formula for ![equation](https://latex.codecogs.com/png.latex?S(2k)) involves understanding the combinatorial nature of valid sequences. By analyzing the recursive patterns and constructing a recurrence relation, we can attempt to express ![equation](https://latex.codecogs.com/png.latex?S(2k)) in terms of previously computed values. The challenge lies in ensuring the non-negative constraint and the power of 2 condition at each step.
+2. **What are the computational limits for generating sequences for large ![equation](https://latex.codecogs.com/png.latex?n)?**
+   
+   - **Answer:** The computational limits are influenced by the exponential growth in the number of potential sequences as ![equation](https://latex.codecogs.com/png.latex?n) increases. Using advanced techniques such as dynamic programming and memoization can help manage these limits by reusing previously computed results. Additionally, parallel computing methods can distribute the computational load and enhance efficiency.
+3. **Can dynamic programming be applied to optimize the sequence generation?**
+   
+   - **Answer:** Yes, dynamic programming is well-suited for optimizing the generation of valid sequences. By storing intermediate results in a table and using them to construct longer sequences, we can significantly reduce redundant calculations. This approach ensures that the sequence generation process is both efficient and scalable.
+4. **How does the constraint of non-negative counts influence the enumeration process?**
+   
+   - **Answer:** The non-negative constraint introduces additional complexity to the enumeration process. Each step must check and ensure that the number of jellybeans does not fall below zero. This constraint can be incorporated into the backtracking algorithm by adding a condition to prune branches that violate this rule, thus reducing the number of potential sequences to be evaluated.
+5. **What role do combinatorial patterns play in solving the Jellybean Sequences problem?**
+   
+   - **Answer:** Combinatorial patterns help identify the structural properties of valid sequences. By recognizing these patterns, we can simplify the enumeration process and derive insights that lead to a more generalized solution. Patterns such as alternating additions and subtractions and their impact on reaching powers of 2 are crucial for formulating a systematic approach to the problem.
+
+#### Eight Queens Problem Questions:
+
+1. **How does the backtracking algorithm scale with larger ![equation](https://latex.codecogs.com/png.latex?n)-Queens problems?**
+   
+   - **Answer:** The backtracking algorithm scales exponentially with larger ![equation](https://latex.codecogs.com/png.latex?n)-Queens problems due to the increased number of possible configurations. However, optimizations such as pruning invalid branches early and using heuristic-based placements can significantly improve scalability. Advanced data structures like bitsets can also enhance efficiency by quickly checking for conflicts.
+2. **What are the most effective pruning strategies in backtracking for the Queens Problem?**
+   
+   - **Answer:** Effective pruning strategies include constraint propagation, where placing a queen immediately updates the board to reflect forbidden positions, and forward checking, which predicts conflicts ahead of time. Additionally, using domain reduction techniques, such as eliminating rows and columns already occupied by queens, can reduce the search space and speed up the solution process.
+3. **Can the solution to the Eight Queens Problem be used to inform other combinatorial optimization problems?**
+   
+   - **Answer:** Yes, the principles and techniques used in solving the Eight Queens Problem can be applied to other combinatorial optimization problems. For example, constraint satisfaction problems (CSPs) in scheduling, resource allocation, and puzzle-solving can benefit from similar backtracking and pruning methods. The insights gained from handling constraints and validating configurations are broadly applicable.
+4. **How can we prove that all valid solutions have been found without missing any configurations?**
+   
+   - **Answer:** To prove that all valid solutions have been found, we can use exhaustive search algorithms combined with mathematical induction. By ensuring that every possible configuration is explored and validated, and by showing that the algorithm covers the entire solution space without gaps, we can confidently assert the completeness of the solution set. Additionally, cross-verifying results using different algorithms can provide further assurance.
+5. **What mathematical properties of chessboard configurations are relevant to the Eight Queens Problem?**
+   
+   - **Answer:** Relevant mathematical properties include symmetry, permutations, and the combinatorial nature of placing non-attacking pieces. Understanding these properties helps in constructing efficient algorithms and proving the validity of solutions. For instance, leveraging symmetries can reduce the search space by identifying equivalent configurations, while permutations can help systematically explore all possible placements.
+6. **What is the basic goal of the Eight Queens Problem?**
+   
+   - **Answer:** The goal is to place eight queens on an ![equation](https://latex.codecogs.com/png.latex?8%20\times%208) chessboard in such a way that no two queens can attack each other. This means that no two queens can be in the same row, column, or diagonal.
+7. **Why can't two queens be in the same row or column?**
+   
+   - **Answer:** In chess, a queen can move any number of squares vertically or horizontally. If two queens are in the same row or column, one could attack the other. The challenge of the problem is to avoid such placements to ensure none of the queens can capture another.
+8. **How do we check if two queens are in the same diagonal?**
+   
+   - **Answer:** Two queens are in the same diagonal if the absolute difference between their row indices equals the absolute difference between their column indices. Mathematically, queens at positions ![equation](https://latex.codecogs.com/png.latex?(r_1,%20c_1)) and ![equation](https://latex.codecogs.com/png.latex?(r_2,%20c_2)) are in the same diagonal if ![equation](https://latex.codecogs.com/png.latex?|r_1%20-%20r_2|%20=%20|c_1%20-%20c_2|). This means that if you subtract the row number of one queen from the row number of the other queen, and do the same for the column numbers, the results should be the same for them to be on the same diagonal.
+9. **What is backtracking, and how is it used in solving the Eight Queens Problem?**
+   
+   - **Answer:** Backtracking is a method of exploring possible configurations of a problem to find a solution. In the Eight Queens Problem, it involves placing a queen in a row and recursively attempting to place the remaining queens in subsequent rows. If a conflict is detected, the algorithm backtracks to the previous row to try a different column for the queen.
+10. **Why is the Eight Queens Problem considered a combinatorial problem?**
+
+- **Answer:** It's considered a combinatorial problem because it involves finding a specific arrangement of queens among the many possible combinations on the board. The challenge lies in exploring these combinations efficiently and validating them against the problem's constraints.
+
+11. **Can the Eight Queens Problem have multiple solutions?**
+
+- **Answer:** Yes, there are multiple solutions to the Eight Queens Problem. Different valid configurations of queens can satisfy the problem's constraints. The total number of distinct solutions for the Eight Queens Problem is 92.
+
+12. **How does symmetry help in reducing the number of solutions we need to check?**
+
+- **Answer:** Symmetry in the chessboard allows us to reduce the number of configurations by recognizing that certain placements are essentially the same due to rotation or reflection. By identifying these symmetrical solutions, we can avoid redundant checks and focus on unique configurations.
+
+#### Cross-Problem Discussions:
+
+1. **How can insights from the Eight Queens Problem's validation process be applied to the Jellybean Sequences?**
+   
+   - **Answer:** The validation process in the Eight Queens Problem involves systematically checking for conflicts, which can be adapted to the Jellybean Sequences problem by ensuring non-negative counts and power of 2 conditions. Techniques such as constraint propagation and forward checking can be used to validate jellybean sequences at each step, ensuring that only valid sequences are generated.
+2. **Are there heuristic methods used in one problem that can be beneficial for the other?**
+   
+   - **Answer:** Yes, heuristic methods such as prioritizing certain placements or moves based on their likelihood of leading to a solution can be beneficial in both problems. For instance, in the Eight Queens Problem, placing queens in central positions first can reduce conflicts. Similarly, in the Jellybean Sequences, starting with sequences that quickly reach powers of 2 can help narrow down valid configurations.
+3. **What are the similarities and differences in the search spaces of both problems?**
+   
+   - **Answer:** The search spaces of both problems are combinatorial in nature, involving the exploration of numerous potential configurations. However, the Eight Queens Problem has a fixed spatial constraint on a chessboard, while the Jellybean Sequences problem involves numerical constraints over time. Both problems require efficient search strategies and validation techniques to navigate their respective search spaces effectively.
+4. **How can computational methods be shared and adapted between the two problems to enhance efficiency?**
+   
+   - **Answer:** Computational methods such as backtracking, dynamic programming, and heuristic-based pruning can be adapted and shared between the two problems. By leveraging common strategies for exploring and validating configurations, we can enhance efficiency. For example, memoization techniques used in dynamic programming for Jellybean Sequences can be applied to store intermediate results in the Eight Queens Problem, reducing redundant calculations.
+5. **What are the potential applications of solving these combinatorial problems beyond theoretical interest?**
+   
+   - **Answer:** Solving combinatorial problems like the Jellybean Sequences and Eight Queens Problem has practical applications in fields such as operations research, computer science, and artificial intelligence. These solutions can inform algorithms for resource allocation, scheduling, optimization, and even cryptography. The techniques developed for these problems can be adapted to solve real-world challenges that involve complex constraints and large search spaces.
+
+### Conclusion
+
+This meeting was a valuable exercise in collaborative learning and problem-solving. By exploring the Jellybean Sequences and Eight Queens Problem together, we were able to share insights, discuss challenges, and enhance our understanding of combinatorial search techniques.
